@@ -1,0 +1,13 @@
+{
+  "origin": "https://apps.nan.do",
+  "customDomainEnabled": false,
+  "apps": {
+    "cleanmarks": {
+      "browsers": {
+        "firefox": null,
+        "chrome": null,
+        "safari": null
+      }
+    }
+  }
+}

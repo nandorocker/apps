@@ -1,0 +1,76 @@
+:root {
+  font-family: 'Nunito Sans', 'Avenir Next', system-ui, sans-serif;
+  color: #2e3041;
+  background: #fdfdfb;
+  font-synthesis: none;
+  color-scheme: light;
+  --ink: #2e3041;
+  --teal: #365c5d;
+  --lavender: #9fa0ff;
+  --mint: #d5e8e6;
+  --cream: #fff3e3;
+  --coral: #ff7171;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 100px; }
+body { margin: 0; font-size: 17px; line-height: 1.6; }
+h1, h2, h3, p, figure { margin: 0; }
+h1, h2, h3 { line-height: 1.12; font-weight: 900; letter-spacing: -.045em; }
+p { max-width: 65ch; }
+a { color: inherit; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+button { font: inherit; color: inherit; }
+img { max-width: 100%; height: auto; }
+button, a { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid var(--teal); outline-offset: 5px; }
+main:focus { outline: none; }
+[hidden] { display: none !important; }
+.skip-link { position: fixed; top: -100px; left: 16px; z-index: 30; padding: 10px 18px; background: white; border: 2px solid var(--ink); }
+.skip-link:focus { top: 12px; }
+
+/* Common nan.do navigation, body typography and footer. */
+.site-nav { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 12px max(40px, calc((100vw - 1200px) / 2)); background: #fdfdfbf5; border-bottom: 1px solid #2e304110; }
+.brand { display: inline-flex; align-items: center; gap: 9px; font-size: 25px; font-weight: 900; letter-spacing: -1px; text-decoration: none; white-space: nowrap; }
+.brand img { width: 34px; height: 34px; object-fit: contain; }
+.brand-sub { font-size: 18px; font-weight: 700; color: var(--teal); letter-spacing: 0; }
+.site-nav nav { display: flex; align-items: center; gap: 26px; }
+.site-nav nav a { font-size: 15px; font-weight: 800; text-decoration: none; }
+.site-nav nav a:hover { text-decoration: underline; }
+.nav-pill { background: var(--lavender); border: 1px solid #2e304120; border-radius: 100px; padding: 10px 20px; }
+.site-footer { background: var(--ink); color: #fffaf2; padding: 38px max(40px, calc((100vw - 1200px) / 2)); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 28px; font-size: 14px; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 12px 26px; flex-basis: 100%; }
+.footer-credit span { margin-left: 16px; }
+.footer-credit a { font-weight: 800; text-decoration: none; }
+.footer-support { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; }
+.coffee-link { background: var(--cream); color: var(--ink); padding: 12px 18px; font-weight: 850; border-radius: 10px; text-decoration: none; }
+.site-footer :focus-visible { outline-color: var(--lavender); }
+
+.apps-main { max-width: 1200px; margin: 0 auto; padding: 100px 40px 120px; min-height: 65vh; }
+.apps-main h1 { font-size: clamp(48px, 7vw, 80px); max-width: 750px; }
+.apps-intro { font-size: 21px; margin: 24px 0 48px; }
+.app-listing { display: flex; align-items: center; gap: 24px; padding: 30px 0; border-block: 1px solid #2e304126; max-width: 800px; text-decoration: none; }
+.app-listing > img { width: 88px; height: 88px; }
+.app-listing h2 { font-size: 32px; margin-bottom: 10px; }
+.app-listing p { color: var(--teal); }
+.app-listing > span:last-child { margin-left: auto; font-size: 30px; }
+@media (max-width: 760px) {
+  .site-nav { padding: 12px 24px; gap: 16px; }
+  .site-nav nav { gap: 16px; }
+  .site-footer { padding: 32px 24px; }
+  .apps-main { padding: 64px 24px 80px; }
+}
+@media (max-width: 540px) {
+  .site-nav { flex-wrap: wrap; padding: 12px 20px; gap: 10px; }
+  .brand { font-size: 23px; }
+  .site-nav nav { gap: 14px; margin-left: auto; }
+  .site-nav .nav-detail { display: none; }
+  .site-nav nav a { font-size: 14px; }
+  .nav-pill { padding: 8px 15px; }
+  .site-footer { padding: 32px 20px; align-items: flex-start; }
+  .footer-support { gap: 12px; }
+  .app-listing { gap: 16px; }
+  .app-listing > img { width: 60px; height: 60px; }
+  .apps-main { padding-inline: 20px; }
+  .app-listing h2 { font-size: 27px; }
+  .app-listing p { font-size: 15px; }
+}
