@@ -42,8 +42,24 @@ main:focus { outline: none; }
 .footer-credit span { margin-left: 16px; }
 .footer-credit a { font-weight: 800; text-decoration: none; }
 .footer-support { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; }
-.coffee-link { background: var(--cream); color: var(--ink); padding: 12px 18px; font-weight: 850; border-radius: 10px; text-decoration: none; }
+.coffee-link { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; background: #feb21a; color: #1a1208; font-family: 'Work Sans', system-ui, sans-serif; font-size: 16px; font-weight: 800; line-height: 1.5; padding: 12px 20px; border: 1px solid #090c10; border-radius: 8px; text-decoration: none; white-space: nowrap; box-shadow: 2px 2px 0 #090c10; transition: transform 160ms cubic-bezier(.23, 1, .32, 1), box-shadow 160ms cubic-bezier(.23, 1, .32, 1); }
+.coffee-link svg { width: 20px; height: 20px; }
+.coffee-link:hover { color: #1a1208; }
+@media (hover: hover) and (pointer: fine) {
+  .coffee-link:hover:not(:focus-visible):not(:active) { box-shadow: 5px 5px 0 #090c10; }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .coffee-link:hover:not(:focus-visible):not(:active) { transform: translate(-3px, -3px); }
+}
+.coffee-link:active { box-shadow: 0 0 0 #090c10; }
+@media (prefers-reduced-motion: no-preference) {
+  .coffee-link:active:not(:focus-visible) { transform: translate(2px, 2px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .coffee-link { transition: none; }
+}
 .site-footer :focus-visible { outline-color: var(--lavender); }
+.site-footer .coffee-link:focus-visible { outline: 3px solid #feb21a; outline-offset: 4px; }
 
 .apps-main { max-width: 1200px; margin: 0 auto; padding: 100px 40px 120px; min-height: 65vh; }
 .apps-main h1 { font-size: clamp(48px, 7vw, 80px); max-width: 750px; }

@@ -22,11 +22,13 @@ The build replaces only `docs/`, copying `assets/` and `cleanmarks/`. This gener
 
 The icon and screenshot use Cleanmarks source at `ff76b946ce424349124fec324eac00f5967d7888`. The screenshot was rendered with the app's `renderApp` function and sidebar styles, showing two likely-dead links, one result needing review and one redirect. The avatar is reused from `https://ocp.nan.do/nando-avatar.png`.
 
+The Firefox Browser, Google Chrome and Safari SVG marks are from [Simple Icons](https://github.com/simple-icons/simple-icons) (CC0), stored locally under `cleanmarks/assets/`. The coffee button reuses OCP's artwork and exact button styling, including Work Sans 800.
+
 The build tolerates missing assets while copy is in progress; checks intentionally fail for missing local references. Checks also verify fragments, canonical URLs, required copy, disabled/enabled downloads, rejected unsafe configuration, reduced-motion CSS and Pages files. They are static assertions, not a substitute for visual/browser accessibility testing. Test at 320px and desktop, with keyboard navigation, JavaScript disabled, reduced motion, and the demo’s cleanup/replay states.
 
 ## Download links
 
-Edit `site.config.json`. Each browser value is `null` until its release is available. Null renders a native disabled button with a visible Coming soon / Planned label. An HTTPS URL renders a normal download anchor at build time, without JavaScript:
+Edit `site.config.json`. Each browser value is `null` until its release is available. Null renders a native disabled button with finished styling and an accessible “not available yet” label; it has no link. The launch note below explains store availability. An HTTPS URL renders a normal download anchor at build time, without JavaScript:
 
 ```json
 "firefox": "https://addons.mozilla.org/firefox/addon/your-published-listing/"

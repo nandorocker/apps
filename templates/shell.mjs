@@ -15,9 +15,12 @@ export function validateConfig(config) {
 }
 
 export function downloads(browsers) {
-  return Object.entries({ firefox: 'Firefox', chrome: 'Chrome', safari: 'Safari' }).map(([key, name]) => browsers[key]
-    ? `<a class="browser-button" href="${escape(browsers[key])}"><span class="browser-symbol" aria-hidden="true">${name[0]}</span><span>${name}<small>Get the free beta</small></span></a>`
-    : `<button class="browser-button" type="button" disabled><span class="browser-symbol" aria-hidden="true">${name[0]}</span><span>${name}<small>${key === 'safari' ? 'Planned' : 'Coming soon'}</small></span></button>`).join('');
+  return Object.entries({ firefox: 'Firefox', chrome: 'Chrome', safari: 'Safari' }).map(([key, name]) => {
+    const label = `<img class="browser-symbol" src="./assets/${key}.svg" alt="" width="24" height="24"><span><small>Download for</small>${name}</span>`;
+    return browsers[key]
+      ? `<a class="browser-button" href="${escape(browsers[key])}">${label}</a>`
+      : `<button class="browser-button" type="button" disabled aria-label="Download for ${name}, not available yet">${label}</button>`;
+  }).join('');
 }
 
 export function shell({ title, description, path, body, config, product = false }) {
@@ -32,12 +35,12 @@ export function shell({ title, description, path, body, config, product = false 
 <meta property="og:title" content="${escape(title)}"><meta property="og:description" content="${escape(description)}"><meta property="og:type" content="website">
 <meta property="og:image" content="${config.origin}/cleanmarks/assets/icon128.png"><meta property="og:image:alt" content="Cleanmarks bookmark icon"><meta name="twitter:card" content="summary">
 <link rel="icon" href="${root}cleanmarks/assets/icon128.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;750;800;850;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;750;800;850;900&family=Work+Sans:wght@800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${root}assets/shell.css">${product ? '<link rel="stylesheet" href="./cleanmarks.css"><script src="./demo.js" defer></script>' : ''}
 </head><body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-nav"><a class="brand" href="./">${product ? '<img src="./assets/icon128.png" alt="" width="34" height="34">Cleanmarks' : 'nan.do <span class="brand-sub">apps</span>'}</a><nav aria-label="Main navigation">${product ? '<a class="nav-detail" href="#how-it-works">How it works</a><a class="nav-detail" href="https://github.com/nandorocker/cleanmarks">GitHub</a><a class="nav-pill" href="#download">Download</a>' : '<a href="https://nan.do">About Nando</a><a class="nav-pill" href="./cleanmarks/">Cleanmarks</a>'}</nav></header>
 ${body}
-<footer class="site-footer"><nav class="footer-links" aria-label="Footer"><a href="${root}">All apps</a><a href="${root}cleanmarks/">Cleanmarks</a><a href="${root}cleanmarks/#download">Download</a><a href="https://github.com/nandorocker/cleanmarks/issues">Feedback &amp; ideas</a><a href="https://github.com/nandorocker/cleanmarks">GitHub</a></nav><div class="footer-credit">Made by <a href="https://nan.do">Nando Rossi</a> <span>© 2026</span></div><div class="footer-support"><span>Find this useful?</span><a class="coffee-link" href="https://buymeacoffee.com/nandorossi">Buy me a coffee</a></div></footer>
+<footer class="site-footer"><nav class="footer-links" aria-label="Footer"><a href="${root}">All apps</a><a href="${root}cleanmarks/">Cleanmarks</a><a href="${root}cleanmarks/#download">Download</a><a href="https://github.com/nandorocker/cleanmarks/issues">Feedback &amp; ideas</a><a href="https://github.com/nandorocker/cleanmarks">GitHub</a></nav><div class="footer-credit">Made by <a href="https://nan.do">Nando Rossi</a> <span>© 2026</span></div><div class="footer-support"><span>Find this useful? Support me!</span><a class="coffee-link" href="https://buymeacoffee.com/nandorossi" target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 8h14l-1.5 9A2 2 0 0 1 15.52 19H8.48A2 2 0 0 1 6.5 17L5 8Z" fill="currentColor"/><path d="M5 8H4a2 2 0 0 0 0 4h1M8 8V5M12 8V5M16 8V5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Buy me a coffee</a></div></footer>
 </body></html>`;
 }
