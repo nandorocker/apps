@@ -1,6 +1,6 @@
 {
   "origin": "https://apps.nan.do",
-  "customDomainEnabled": false,
+  "customDomainEnabled": true,
   "apps": {
     "cleanmarks": {
       "browsers": {

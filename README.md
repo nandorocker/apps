@@ -47,12 +47,12 @@ The cleanup vignette uses example links only. It never reads browser bookmarks o
 
 Pages publishes the committed `docs/` folder from `main`, with no custom Actions workflow or extra workflow-token permission. Run `npm run build` and `npm run check`, commit source and generated files together, then push `main` to deploy.
 
-In repository Settings → Pages, choose **Deploy from a branch**, `main`, `/docs`. The interim URL is `https://nandorocker.github.io/apps/cleanmarks/`.
+In repository Settings → Pages, choose **Deploy from a branch**, `main`, `/docs`. The custom domain is `apps.nan.do`, with Cleanmarks at `https://apps.nan.do/cleanmarks/`. GitHub's default URL redirects to the custom domain.
 
-To connect the final address:
+Domain configuration:
 
 1. Add a DNS-only Cloudflare CNAME: `apps` → `nandorocker.github.io`. Do not change the apex or other app records.
 2. Set `customDomainEnabled` to `true` in `site.config.json`, rebuild/check, commit and push. This adds `docs/CNAME` containing `apps.nan.do`.
 3. Confirm the custom domain in GitHub Pages settings and enable **Enforce HTTPS** after its certificate is issued.
 
-Until DNS access is available, `customDomainEnabled` remains false so the default Pages URL stays usable. Canonical and social metadata already target the final `origin`, `https://apps.nan.do`. `.nojekyll` is always included. Never put credentials or infrastructure notes in this public repository.
+`customDomainEnabled` is true, keeping `docs/CNAME` in generated output. Canonical and social metadata target `origin`, `https://apps.nan.do`. `.nojekyll` is always included. To return to the default Pages URL, disable this flag, rebuild and publish, and clear the custom domain in Pages settings before removing its exact DNS record. Never put credentials or infrastructure notes in this public repository.
